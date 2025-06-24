@@ -1,0 +1,4 @@
+
+Copy one of the following lines and paste it to the terminal:
+
+ansible-playbook playbook.ubuntu.ping.yaml
