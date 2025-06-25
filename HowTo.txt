@@ -1,4 +1,7 @@
 
+Hit Ctrl-Shift-X to see the installed extensions within VS Code. Ansible, YAML and PowerShell are already installed and will helk you with Admninistration As Code.
+
+In the terminal you can execute your administration tasks.
 Copy one of the following lines and paste it to the terminal:
 
 ansible-playbook playbook.ubuntu.ping.yaml
