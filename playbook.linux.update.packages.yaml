@@ -1,5 +1,5 @@
 ---
-- name: Update all packages on linux hosts
+- name: Update all packages on Debian/Ubuntu hosts
   hosts: localhost
 #  hosts: all
   tasks:
