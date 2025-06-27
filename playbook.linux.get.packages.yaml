@@ -1,0 +1,15 @@
+---
+- name: Get installed packages on linux hosts
+  hosts: localhost
+#  hosts: all
+  tasks:
+    - name: Gather package facts
+      ansible.builtin.package_facts:
+        manager: auto
+
+    - name: Display all installed packages with name and version
+      ansible.builtin.debug:
+        msg: "{{ item.key }}: {{ item.value[0].version }}"
+      loop: "{{ ansible_facts.packages | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"

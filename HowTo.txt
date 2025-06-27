@@ -5,4 +5,4 @@ Ansible, YAML and PowerShell are already installed and will help you with Admnin
 In the terminal you can execute your administration tasks.
 Copy one of the following lines and paste it to the terminal:
 
-ansible-playbook playbook.ubuntu.ping.yaml
+ansible-playbook playbook.linux.ping.yaml
