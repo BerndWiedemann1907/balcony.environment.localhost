@@ -1,5 +1,5 @@
 
-Hit Ctrl-Shift-X to see the installed extensions within VS Code.
+Hit Ctrl-Shift-X to see the installed extensions within VS Code. 
 Ansible, YAML and PowerShell are already installed and will help you with Admninistration As Code.
 
 In the terminal you can execute your administration tasks.
