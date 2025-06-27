@@ -6,3 +6,5 @@ In the terminal you can execute your administration tasks.
 Copy one of the following lines and paste it to the terminal:
 
 ansible-playbook playbook.linux.ping.yaml
+ansible-playbook playbook.linux.get.packages.yaml
+ansible-playbook playbook.linux.update.packages.yaml -K -vvv
