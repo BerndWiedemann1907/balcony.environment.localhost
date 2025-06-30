@@ -1,0 +1,44 @@
+---
+- name: Update all packages on Debian/Ubuntu hosts
+  hosts: localhost
+#  hosts: all
+  tasks:
+    - name: Ping linux hosts
+      ansible.builtin.ping:
+
+    - name: Update package cache (Debian/Ubuntu)
+      ansible.builtin.apt:
+        update_cache: true
+      when: ansible_os_family == "Debian"
+      become: true
+
+    - name: Get list of upgradable packages (Debian/Ubuntu)
+      ansible.builtin.shell: apt list --upgradable 2>/dev/null | grep -v "WARNING" | grep upgradable | awk -F'/' '{print $1}' | sort
+      register: upgradable_packages_raw
+      when: ansible_os_family == "Debian"
+      changed_when: false
+
+    - name: Get detailed information about upgradable packages
+      ansible.builtin.shell: |
+        apt list --upgradable 2>/dev/null | grep -v "WARNING" | grep upgradable | while read line; do
+          package=$(echo "$line" | awk -F'/' '{print $1}')
+          current=$(echo "$line" | grep -o '\[installed: [^]]*\]' | sed 's/\[installed: //; s/\]//')
+          available=$(echo "$line" | awk '{print $2}')
+          echo "{\"package\":\"$package\",\"current_version\":\"$current\",\"available_version\":\"$available\"}"
+        done | jq -s '.'
+      register: upgradable_packages_json
+      when: ansible_os_family == "Debian"
+      changed_when: false
+
+    - name: Write upgradable packages to JSON file
+      ansible.builtin.copy:
+        content: "{{ upgradable_packages_json.stdout | from_json | to_nice_json }}"
+        dest: ./upgradable_packages_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.json
+        mode: '0644'
+      when: ansible_os_family == "Debian" and upgradable_packages_json.stdout | length > 2
+
+    - name: Display count of upgradable packages
+      ansible.builtin.debug:
+        msg: "Found {{ (upgradable_packages_json.stdout | from_json | length) if upgradable_packages_json.stdout is defined else 0 }} packages that can be upgraded"
+      when: ansible_os_family == "Debian"
+
