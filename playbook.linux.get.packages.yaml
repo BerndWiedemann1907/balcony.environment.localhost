@@ -13,3 +13,9 @@
       loop: "{{ ansible_facts.packages | dict2items }}"
       loop_control:
         label: "{{ item.key }}"
+
+    - name: Write package information to JSON file
+      ansible.builtin.copy:
+        content: "{{ ansible_facts.packages | to_nice_json }}"
+        dest: ./packages_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.json
+        mode: '0644'
