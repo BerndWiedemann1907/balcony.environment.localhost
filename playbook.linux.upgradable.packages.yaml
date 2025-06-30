@@ -14,7 +14,7 @@
       ansible.builtin.shell: |
         apt list --upgradable 2>/dev/null | grep -v "WARNING" | grep upgradable | while read line; do
           package=$(echo "$line" | awk -F'/' '{print $1}')
-          current=$(echo "$line" | grep -o '\[installed: [^]]*\]' | sed 's/\[installed: //; s/\]//')
+          current=$(echo "$line" | grep -o '\[upgradable from: [^]]*\]' | sed 's/\[upgradable from: //; s/\]//')
           available=$(echo "$line" | awk '{print $2}')
           echo "{\"package\":\"$package\",\"current_version\":\"$current\",\"available_version\":\"$available\"}"
         done | jq -s '.'
