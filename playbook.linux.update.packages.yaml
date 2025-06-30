@@ -3,14 +3,6 @@
   hosts: localhost
 #  hosts: all
   tasks:
-    - name: Ping linux hosts
-      ansible.builtin.ping:
-
-    - name: Update package cache (Debian/Ubuntu)
-      ansible.builtin.apt:
-        update_cache: true
-      when: ansible_os_family == "Debian"
-      become: true
 
     - name: Update all packages to latest version
       ansible.builtin.package:
