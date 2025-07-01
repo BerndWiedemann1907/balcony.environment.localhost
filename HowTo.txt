@@ -3,6 +3,8 @@ Hit Ctrl-Shift-X to see the installed extensions within VS Code.
 Ansible, YAML, PowerShell and GitHub Copilot are already installed and will help you with Administration As Code.
 
 In the terminal you can execute your administration tasks.
+Change to the directory balcony.environment.localhost.
+
 Copy one of the following lines and paste it to the terminal:
 
 ansible-playbook playbook.linux.ping.yaml
