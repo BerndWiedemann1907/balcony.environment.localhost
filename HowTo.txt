@@ -1,5 +1,5 @@
 
-The module balcony.environment.localhost provides simple playbooks, which can be executed on loaclhost.
+The module balcony.environment.localhost provides simple playbooks, which can be executed on localhost.
 This means you do not need to setup or control a remote pc and hence, you also do not need to provide an inventory-file.
 
 Hit Ctrl-Shift-X to see the installed extensions within VS Code. 
