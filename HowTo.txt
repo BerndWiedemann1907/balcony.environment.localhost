@@ -2,7 +2,7 @@
 The module balcony.environment.localhost provides simple playbooks, which can be executed on localhost.
 This means you do not need to setup or control a remote pc and hence, you also do not need to provide an inventory-file.
 
-Hit Ctrl-Shift-X to see the installed extensions within VS Code. 
+Hit Ctrl-Shift-X to see the installed extensions within balcony.core.code - VS Code. 
 Ansible, YAML, PowerShell and GitHub Copilot are already installed and will help you with Administration As Code.
 
 In the terminal you can execute your administration tasks.
