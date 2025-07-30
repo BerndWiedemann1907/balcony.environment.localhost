@@ -1,5 +1,9 @@
 
-The module balcony.environment.localhost provides simple playbooks, which can be executed on localhost.
+The module ansible-playbook playbook.environment.linux.ping.yaml
+ansible-playbook playbook.environment.linux.get.packages.yaml
+ansible-playbook playbook.environment.linux.update.packages.cache.yaml -K -v
+ansible-playbook playbook.environment.linux.upgradable.packages.yaml
+ansible-playbook playbook.environment.linux.update.packages.yaml -K -vvvny.environment.localhost provides simple playbooks, which can be executed on localhost.
 This means you do not need to setup or control a remote pc and hence, you also do not need to provide an inventory-file.
 
 Hit Ctrl-Shift-X to see the installed extensions within balcony.core.code - VS Code. 
@@ -10,8 +14,8 @@ Change to the directory balcony.environment.localhost.
 
 Copy one of the following lines and paste it to the terminal:
 
-ansible-playbook playbook.linux.ping.yaml
-ansible-playbook playbook.linux.get.packages.yaml
-ansible-playbook playbook.linux.update.packages.cache.yaml -K
-ansible-playbook playbook.linux.upgradable.packages.yaml
-ansible-playbook playbook.linux.update.packages.yaml -K -vvv
+ansible-playbook playbook.environment.linux.ping.yaml
+ansible-playbook playbook.environment.linux.get.packages.yaml
+ansible-playbook playbook.environment.linux.update.packages.cache.yaml -K
+ansible-playbook playbook.environment.linux.upgradable.packages.yaml
+ansible-playbook playbook.environment.linux.update.packages.yaml -K -vvv
