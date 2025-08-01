@@ -51,8 +51,101 @@ This component works perfectly with the balcony.core.code development environmen
 - **Syntax Highlighting**: Ansible and YAML syntax support
 - **IntelliSense**: Auto-completion for Ansible modules and YAML
 - **Git Integration**: Track changes to your playbooks
+- **VS Code Tasks**: Pre-configured tasks for easy playbook execution
+
+#### Using VS Code Tasks
+VS Code tasks are pre-configured for all playbooks mentioned in this guide. To access them:
+
+1. **Command Palette Method**: 
+   - Press `Ctrl+Shift+P` (Linux/Windows) or `Cmd+Shift+P` (Mac)
+   - Type "Tasks: Run Task"
+   - Select from the available Ansible tasks
+
+2. **Terminal Menu Method**:
+   - Go to `Terminal > Run Task...`
+   - Choose from the pre-configured playbook tasks
+
+3. **Keyboard Shortcut**:
+   - Press `Ctrl+Shift+P` and type "task" to quickly access task runner
+
+#### Available VS Code Tasks
+
+**Individual Playbook Tasks:**
+- ✅ **Ansible: Test Connectivity (ping)** - Quick connectivity test
+- ✅ **Ansible: Get Package Information** - System package inventory
+- ✅ **Ansible: Update Package Cache (requires sudo)** - Update package database
+- ✅ **Ansible: Check Upgradable Packages** - Find available updates
+- ✅ **Ansible: Apply Package Updates (requires sudo)** - Install package updates
+- ✅ **Ansible: Apply Package Updates (verbose, requires sudo)** - Install updates with detailed output
+
+**Workflow Tasks:**
+- 🔄 **Workflow: Daily Maintenance Routine** - Complete daily maintenance workflow
+- 📊 **Workflow: Development Environment Audit** - Comprehensive system audit
+
+**Debug and Testing Tasks:**
+- 🔍 **Debug: Syntax Check All Playbooks** - Validate all playbook syntax
+- 🧪 **Debug: Dry Run - Update Packages** - Test update process without changes
+
+#### Task Benefits
+- **No Command Memorization**: All commands pre-configured and ready to use
+- **Consistent Execution**: Standardized parameters and options
+- **Integrated Output**: Results appear directly in VS Code terminal
+- **Error Highlighting**: VS Code can highlight and navigate to errors
+- **Workflow Automation**: Complex multi-step procedures automated
+
+## Quick Start with VS Code Tasks
+
+For the easiest experience, use the pre-configured VS Code tasks instead of typing commands manually:
+
+### Method 1: Command Palette (Recommended)
+1. Press `Ctrl+Shift+P` to open the Command Palette
+2. Type "Tasks: Run Task" and press Enter
+3. Select your desired task from the list:
+   - Start with **"Ansible: Test Connectivity (ping)"** for your first test
+   - Use **"Ansible: Get Package Information"** to explore your system
+   - Try **"Workflow: Daily Maintenance Routine"** for comprehensive maintenance
+
+### Method 2: Terminal Menu
+1. Go to `Terminal` in the menu bar
+2. Select `Run Task...`
+3. Choose from the available Ansible tasks
+
+### Method 3: Keyboard Shortcuts
+- `Ctrl+Shift+P` → type "task" → Enter → Select task
+
+### First-Time User Workflow
+**Step 1**: Test your setup
+- Run task: **"Ansible: Test Connectivity (ping)"**
+- Expected: Green "ok" status for localhost
+
+**Step 2**: Explore your system  
+- Run task: **"Ansible: Get Package Information"**
+- Expected: List of all installed packages
+
+**Step 3**: Check for updates
+- Run task: **"Ansible: Check Upgradable Packages"**
+- Expected: List of packages with available updates
+
+**Step 4**: Update system (optional)
+- Run task: **"Ansible: Update Package Cache (requires sudo)"**
+- Enter your password when prompted
+- Then run: **"Ansible: Apply Package Updates (requires sudo)"**
+
+### Learning Progression with Tasks
+1. **Beginner**: Use individual tasks to understand each operation
+2. **Intermediate**: Use workflow tasks for automated sequences
+3. **Advanced**: Modify tasks or create custom ones
+
+### Task Output Tips
+- Tasks run in VS Code's integrated terminal
+- Output appears immediately below the task runner
+- Green text indicates successful operations
+- Red text indicates errors that need attention
+- Yellow text shows warnings or informational messages
 
 ## Basic Operations
+
+> **💡 Pro Tip**: Instead of typing these commands manually, you can use the pre-configured VS Code tasks! Press `Ctrl+Shift+P`, type "Tasks: Run Task", and select from the available options. See the [Quick Start with VS Code Tasks](#quick-start-with-vs-code-tasks) section above.
 
 ### 1. System Connectivity Test
 Start with testing basic Ansible connectivity to your localhost:
