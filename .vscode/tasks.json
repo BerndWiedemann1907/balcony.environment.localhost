@@ -7,6 +7,9 @@
             "command": "ansible-playbook",
             "args": ["playbook.environment.localhost.ping.yaml"],
             "group": "test",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -23,6 +26,9 @@
             "command": "ansible-playbook",
             "args": ["playbook.environment.localhost.get.packages.yaml"],
             "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -39,6 +45,9 @@
             "command": "ansible-playbook",
             "args": ["playbook.environment.localhost.update.packages.cache.yaml", "-K"],
             "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -55,6 +64,9 @@
             "command": "ansible-playbook",
             "args": ["playbook.environment.localhost.upgradable.packages.yaml"],
             "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -71,86 +83,9 @@
             "command": "ansible-playbook",
             "args": ["playbook.environment.localhost.update.packages.yaml", "-K"],
             "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
-            "problemMatcher": []
-        },
-        {
-            "label": "Balcony: Apply Package Updates (verbose, requires sudo)",
-            "type": "shell",
-            "command": "ansible-playbook",
-            "args": ["playbook.environment.localhost.update.packages.yaml", "-K", "-v"],
-            "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Workflow: Daily Maintenance Routine",
-            "type": "shell",
-            "command": "bash",
-            "args": ["-c", "echo 'Starting Daily Maintenance Routine...' && ansible-playbook playbook.environment.localhost.ping.yaml && echo 'Updating package cache...' && ansible-playbook playbook.environment.localhost.update.packages.cache.yaml -K && echo 'Checking for available updates...' && ansible-playbook playbook.environment.localhost.upgradable.packages.yaml && echo 'Daily maintenance routine completed!'"],
-            "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Workflow: Development Environment Audit",
-            "type": "shell",
-            "command": "bash",
-            "args": ["-c", "echo 'Starting Development Environment Audit...' && ansible-playbook playbook.environment.localhost.ping.yaml && echo 'Getting complete package inventory...' && ansible-playbook playbook.environment.localhost.get.packages.yaml && echo 'Checking system currency...' && ansible-playbook playbook.environment.localhost.upgradable.packages.yaml && echo 'Environment audit completed!'"],
-            "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Debug: Syntax Check All Playbooks",
-            "type": "shell",
-            "command": "bash",
-            "args": ["-c", "for playbook in playbook.environment.localhost.*.yaml; do echo \"Checking syntax for $playbook...\"; ansible-playbook \"$playbook\" --syntax-check; done"],
-            "group": "test",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Debug: Dry Run - Update Packages",
-            "type": "shell",
-            "command": "ansible-playbook",
-            "args": ["playbook.environment.localhost.update.packages.yaml", "--check", "-K"],
-            "group": "test",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
